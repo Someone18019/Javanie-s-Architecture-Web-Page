@@ -1,0 +1,396 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Javanie's Studio | Architectural Design in Jamaica</title>
+    <meta
+      name="description"
+      content="Modern house plans, permit drawings and architectural design in Jamaica. Design, Construct, Renovate."
+    />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <!-- Fixed background layer -->
+    <div class="bg" id="bg">
+      <div class="bg-image" id="bgImage"></div>
+      <div class="bg-tint"></div>
+      <div class="bg-name" id="bgName">JAVANIE'S STUDIO</div>
+    </div>
+
+    <!-- Menu -->
+    <header class="site-header">
+      <a href="#home" class="logo">JAVANIE'S <span>STUDIO</span></a>
+      <nav>
+        <a href="#home">Home</a>
+        <a href="#projects">Projects</a>
+        <a href="#services">Services</a>
+        <a href="#about">About</a>
+        <a href="#contact" class="nav-cta">Start a Project</a>
+      </nav>
+    </header>
+
+    <!-- Page content -->
+    <main>
+      <!-- Empty space so the background shows first -->
+      <div class="spacer" id="home"></div>
+
+      <!-- White panel that rises over the background -->
+      <div class="panel" id="panel">
+        <section class="hero">
+          <h1>Design. Construct. Renovate.</h1>
+          <p>Modern house plans and permit drawings in Jamaica.</p>
+          <a href="#contact" class="hero-btn">Start Your Design</a>
+        </section>
+
+        <section class="block" id="projects">
+          <h2>Projects</h2>
+          <p>Featured projects will go here.</p>
+        </section>
+
+        <section class="block" id="services">
+          <h2>Services</h2>
+          <p>
+            Modern house plans, permit drawings, construction and renovation.
+          </p>
+        </section>
+
+        <section class="block" id="about">
+          <h2>About</h2>
+          <p>
+            Javanie's Studio, since 2018. A Javanie Enterprise Limited company.
+          </p>
+        </section>
+
+        <section class="block" id="contact">
+          <h2>Start Your Project</h2>
+          <p class="form-intro">
+            Tell us about your project and we will reply within 2 to 4 business
+            days. Serious inquiries only, please.
+          </p>
+
+          <form class="inquiry-form" id="inquiryForm">
+            <p class="form-legend">Fields marked with * are required.</p>
+
+            <div class="form-split">
+              <div class="form-row">
+                <label for="firstName">First name *</label>
+                <input
+                  type="text"
+                  id="firstName"
+                  name="firstName"
+                  class="name-input"
+                  autocomplete="given-name"
+                  required
+                />
+              </div>
+
+              <div class="form-row">
+                <label for="lastName">Last name *</label>
+                <input
+                  type="text"
+                  id="lastName"
+                  name="lastName"
+                  class="name-input"
+                  autocomplete="family-name"
+                  required
+                />
+              </div>
+            </div>
+
+            <div class="form-row">
+              <label for="email">Email *</label>
+              <input
+                type="email"
+                id="email"
+                name="email"
+                placeholder="name@example.com"
+                autocomplete="email"
+                pattern="[^@\s]+@[^@\s]+\.[^@\s]{2,}"
+                title="Enter a full email address, like name@example.com"
+                required
+              />
+              <span class="field-error" id="emailError" hidden
+                >Please enter a valid email address.</span
+              >
+            </div>
+
+            <div class="form-row">
+              <label for="phone">Phone or WhatsApp number *</label>
+              <input
+                type="tel"
+                id="phone"
+                name="phone"
+                placeholder="+1 (876) 555-1234"
+                autocomplete="tel"
+                inputmode="tel"
+                maxlength="17"
+                required
+              />
+            </div>
+
+            <div class="form-row">
+              <label for="service">What do you need? *</label>
+              <select id="service" name="service" required>
+                <option value="">Choose one</option>
+                <option>House plans</option>
+                <option>Permit drawings</option>
+                <option>Renovation</option>
+                <option>Construction</option>
+                <option>3D visualization</option>
+                <option>Not sure yet</option>
+              </select>
+            </div>
+
+            <!-- Extra questions that appear when they choose House plans -->
+            <div class="house-details" id="houseDetails" hidden>
+              <h3>Tell us about the house</h3>
+
+              <div class="form-row">
+                <label for="bedrooms">Number of bedrooms</label>
+                <select id="bedrooms" name="bedrooms">
+                  <option value="To be discussed">Not sure yet</option>
+                  <option>1</option>
+                  <option>2</option>
+                  <option>3</option>
+                  <option>4</option>
+                  <option>5</option>
+                  <option>6 or more</option>
+                </select>
+              </div>
+
+              <div class="form-row">
+                <label for="bathrooms">Number of bathrooms</label>
+                <select id="bathrooms" name="bathrooms">
+                  <option value="To be discussed">Not sure yet</option>
+                  <option>1</option>
+                  <option>2</option>
+                  <option>3</option>
+                  <option>4 or more</option>
+                </select>
+              </div>
+
+              <div class="form-row">
+                <label for="floors">Number of floors</label>
+                <select id="floors" name="floors">
+                  <option value="To be discussed">Not sure yet</option>
+                  <option>Single storey</option>
+                  <option>Two storeys</option>
+                  <option>Three or more</option>
+                </select>
+              </div>
+
+              <div class="form-row">
+                <label for="style">Style</label>
+                <select id="style" name="style">
+                  <option value="To be discussed">Not sure yet</option>
+                  <option>Modern</option>
+                  <option>Contemporary</option>
+                  <option>Traditional Caribbean</option>
+                  <option>Minimalist</option>
+                  <option>Mediterranean</option>
+                </select>
+              </div>
+
+              <div class="form-row">
+                <label for="features">Must-have features</label>
+                <textarea
+                  id="features"
+                  name="features"
+                  rows="3"
+                  placeholder="For example garage, pool, balcony, helper's quarters, open kitchen"
+                ></textarea>
+              </div>
+            </div>
+
+            <div class="form-row">
+              <label for="type">Project type</label>
+              <select id="type" name="type">
+                <option value="To be discussed">
+                  Not sure yet, to be discussed
+                </option>
+                <option>Residential</option>
+                <option>Commercial</option>
+                <option>Other</option>
+              </select>
+            </div>
+
+            <div class="form-row">
+              <label for="locationChoice">Plot location</label>
+              <select id="locationChoice" name="locationChoice">
+                <option value="To be discussed">
+                  Not decided yet, to be discussed
+                </option>
+                <option value="specify">I know the location</option>
+              </select>
+              <select id="parish" name="parish" hidden>
+                <option value="">Choose a parish</option>
+              </select>
+              <select id="town" name="town" hidden>
+                <option value="">Choose a town or community</option>
+              </select>
+              <input
+                type="text"
+                id="location"
+                name="location"
+                placeholder="Type the town or community"
+                hidden
+              />
+            </div>
+
+            <div class="form-row">
+              <label for="sizeChoice">Land size</label>
+              <select id="sizeChoice" name="sizeChoice">
+                <option value="To be discussed">
+                  Not specified yet, to be discussed
+                </option>
+                <option>Small lot, under 5,000 sq ft</option>
+                <option>Medium lot, 5,000 to 10,000 sq ft</option>
+                <option>
+                  Large lot, 10,000 to 21,780 sq ft (up to half an acre)
+                </option>
+                <option>Very large, over half an acre</option>
+                <option value="specify">I know the exact size</option>
+              </select>
+              <input
+                type="text"
+                id="size"
+                name="size"
+                placeholder="For example 50 x 100 ft"
+                hidden
+              />
+            </div>
+
+            <div class="form-row">
+              <label for="budget">Budget range (JMD)</label>
+              <select id="budget" name="budget">
+                <option value="To be discussed">To be discussed</option>
+                <option>Under $100,000</option>
+                <option>$100,000 to $300,000</option>
+                <option>$300,000 to $500,000</option>
+                <option>$500,000 to $1 million</option>
+                <option>$1 million and up</option>
+              </select>
+            </div>
+
+            <div class="form-row">
+              <label for="timeline">When do you want to start?</label>
+              <select id="timeline" name="timeline">
+                <option value="To be discussed">
+                  Not sure yet, to be discussed
+                </option>
+                <option>As soon as possible</option>
+                <option>Within 3 months</option>
+                <option>Within 6 months</option>
+                <option>Just exploring</option>
+              </select>
+            </div>
+
+            <div class="form-row">
+              <label for="details">Tell us about your idea</label>
+              <textarea
+                id="details"
+                name="details"
+                rows="5"
+                placeholder="Anything else you want us to know about your idea"
+              ></textarea>
+            </div>
+
+            <p class="form-note">
+              Have sketches or photos? Send them to us on WhatsApp after you
+              submit.
+            </p>
+
+            <div class="form-check">
+              <input type="checkbox" id="consent" name="consent" required />
+              <label for="consent"
+                >I agree to the
+                <a href="privacy.html" target="_blank" rel="noopener"
+                  >Privacy, Security and Agreement terms</a
+                >
+                and that my details may be used to respond to my inquiry.</label
+              >
+            </div>
+
+            <div class="form-buttons">
+              <button type="submit" class="hero-btn" id="sendBtn" disabled>
+                Send My Inquiry
+              </button>
+            </div>
+            <p class="form-alert" id="formStatus" role="alert" hidden></p>
+          </form>
+
+          <!-- Shown in place of the form once the inquiry has really been sent -->
+          <div class="thank-you-box" id="thankYouBox" hidden>
+            <div class="tick">&#10003;</div>
+            <h3>Thank you for your inquiry</h3>
+            <p>
+              Your inquiry has been sent. We will review your details and reply
+              within 2 to 4 business days.
+            </p>
+            <p>
+              Have sketches or photos of your plot? Send them to us on WhatsApp.
+            </p>
+          </div>
+
+          <div class="next-steps">
+            <h3>What happens next</h3>
+            <ol>
+              <li>We review your details within 2 to 4 business days.</li>
+              <li>
+                We reach out to talk through your ideas and what you need.
+              </li>
+              <li>
+                We agree on the scope, then move on to design, drawings and
+                permits.
+              </li>
+            </ol>
+          </div>
+        </section>
+
+        <section class="block social" id="social">
+          <h2>Follow Our Work</h2>
+          <div class="social-grid">
+            <div class="social-card">
+              <img
+                src="images/instagram-qr.png"
+                alt="QR code for Javanie's Studio on Instagram"
+                class="qr"
+              />
+              <a
+                href="https://www.instagram.com/javanie_studio"
+                target="_blank"
+                rel="noopener"
+                class="social-link"
+              >
+                Instagram &middot; @javanie_studio
+              </a>
+            </div>
+
+            <div class="social-card">
+              <img
+                src="images/tiktok-qr.png"
+                alt="QR code for Javanie's Studio on TikTok"
+                class="qr"
+              />
+              <a
+                href="https://www.tiktok.com/@javaniesstudio"
+                target="_blank"
+                rel="noopener"
+                class="social-link"
+              >
+                TikTok &middot; @javaniesstudio
+              </a>
+            </div>
+          </div>
+        </section>
+
+        <footer class="site-footer">
+          <p>&copy; Javanie's Studio. All rights reserved.</p>
+        </footer>
+      </div>
+    </main>
+
+    <script src="JavaScript.js"></script>
+  </body>
+</html>

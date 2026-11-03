@@ -1,0 +1,471 @@
+:root {
+  --violet: #6b21c8;
+  --violet-dark: #5517a3;
+  --violet-light: #f1e8fb;
+  --black: #111111;
+  --white: #ffffff;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: Arial, Helvetica, sans-serif;
+  color: var(--black);
+  background: var(--violet);
+}
+
+/* ---------- Fixed background ---------- */
+.bg {
+  position: fixed;
+  inset: 0;
+  overflow: hidden;
+  z-index: 0;
+}
+
+.bg-image {
+  position: absolute;
+  inset: 0;
+  /* Placeholder. Replace the url with his house render, for example images/house.jpg */
+  background-image: url("https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=1800&q=80");
+  background-size: cover;
+  background-position: center;
+  transform: scale(1.25);
+  will-change: transform;
+}
+
+.bg-tint {
+  position: absolute;
+  inset: 0;
+  background: rgba(107, 33, 200, 0.65);
+}
+
+.bg-name {
+  position: absolute;
+  top: 38%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 9vw;
+  font-weight: 800;
+  letter-spacing: 4px;
+  color: var(--white);
+  white-space: nowrap;
+}
+
+/* ---------- Menu ---------- */
+.site-header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+  padding: 16px 40px;
+  background: var(--white);
+  border-bottom: 2px solid var(--violet);
+  z-index: 100;
+}
+
+.logo {
+  font-weight: 800;
+  font-size: 20px;
+  letter-spacing: 1px;
+  color: var(--black);
+  text-decoration: none;
+}
+
+.logo span {
+  color: var(--violet);
+}
+
+nav a {
+  margin: 0 14px;
+  text-decoration: none;
+  color: var(--black);
+  font-weight: 600;
+}
+
+nav a:hover {
+  color: var(--white);
+}
+
+.nav-cta {
+  background: var(--violet);
+  color: var(--white);
+  padding: 10px 18px;
+  border-radius: 4px;
+}
+
+nav a.nav-cta:hover {
+  color: var(--white);
+  background: var(--violet-dark);
+}
+
+/* ---------- Content ---------- */
+main {
+  position: relative;
+  z-index: 10;
+}
+
+/* Empty space at the top so the background shows first.
+   The white panel starts near the bottom of this space. */
+.spacer {
+  height: 85vh;
+}
+
+.panel {
+  background: var(--white);
+  max-width: 1100px;
+  margin: 0 auto;
+  border-radius: 24px 24px 0 0;
+  min-height: 100vh;
+  box-shadow: 0 -10px 40px rgba(0, 0, 0, 0.25);
+  overflow: hidden;
+}
+
+.hero {
+  padding: 80px 40px;
+  text-align: center;
+}
+
+.hero h1 {
+  font-size: 44px;
+  margin-bottom: 16px;
+}
+
+.hero p {
+  font-size: 18px;
+  margin-bottom: 28px;
+}
+
+.hero-btn {
+  display: inline-block;
+  background: var(--violet);
+  color: var(--white);
+  padding: 14px 28px;
+  border-radius: 4px;
+  text-decoration: none;
+  font-weight: 700;
+}
+
+.hero-btn:hover {
+  background: var(--violet-dark);
+}
+
+.block {
+  padding: 80px 40px;
+  text-align: center;
+  border-top: 1px solid var(--violet-light);
+}
+
+.block h2 {
+  color: var(--violet);
+  margin-bottom: 12px;
+}
+
+/* ---------- Inquiry form ---------- */
+.form-intro {
+  max-width: 600px;
+  margin: 0 auto 24px;
+}
+
+.inquiry-form {
+  max-width: 640px;
+  margin: 0 auto;
+  text-align: left;
+  background: var(--white);
+  padding: 36px;
+  border: 2px solid var(--violet-light);
+  border-radius: 16px;
+  box-shadow: 0 10px 30px rgba(107, 33, 200, 0.12);
+}
+
+/* Names: centered text with extra room, first letter capitalized */
+.name-input {
+  text-align: center;
+  padding: 14px 18px;
+  text-transform: capitalize;
+}
+
+.field-error {
+  color: #c0262d;
+  font-size: 13px;
+  font-weight: 600;
+}
+
+.field-error[hidden] {
+  display: none;
+}
+
+/* Extra questions that open under House plans */
+.house-details {
+  background: var(--violet-light);
+  border-radius: 12px;
+  padding: 20px;
+  margin-bottom: 18px;
+}
+
+.house-details[hidden] {
+  display: none;
+}
+
+.house-details h3 {
+  color: var(--violet);
+  margin-bottom: 14px;
+}
+
+.form-check a {
+  color: var(--violet);
+  font-weight: 700;
+}
+
+.form-row {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  margin-bottom: 18px;
+}
+
+.form-row label {
+  font-weight: 700;
+  font-size: 14px;
+}
+
+.form-row input,
+.form-row select,
+.form-row textarea {
+  width: 100%;
+  padding: 12px;
+  border: 2px solid var(--violet-light);
+  border-radius: 6px;
+  font-size: 16px;
+  font-family: inherit;
+  background: var(--white);
+}
+
+/* No drag handle on the text areas, so they cannot be pulled out of the card */
+.form-row textarea {
+  resize: none;
+  max-width: 100%;
+}
+
+/* Send button is faded and locked until the required fields are done */
+.form-buttons button:disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+}
+
+.form-row input:focus,
+.form-row select:focus,
+.form-row textarea:focus {
+  outline: none;
+  border-color: var(--violet);
+}
+
+/* Make sure hidden text boxes really stay hidden */
+.form-row [hidden] {
+  display: none;
+}
+
+.form-legend {
+  font-size: 14px;
+  margin-bottom: 18px;
+  color: #555555;
+}
+
+.form-split {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+}
+
+.form-split .form-row {
+  flex: 1 1 200px;
+}
+
+/* Status message under the Send button: big, boxed and color coded */
+.form-alert {
+  margin-top: 18px;
+  padding: 16px 18px;
+  border-radius: 10px;
+  border: 2px solid;
+  font-size: 16px;
+  font-weight: 700;
+  line-height: 1.5;
+}
+
+.form-alert[hidden] {
+  display: none;
+}
+
+.form-alert.warning {
+  background: #fff4d6;
+  border-color: #e0a100;
+  color: #6b4a00;
+}
+
+.form-alert.error {
+  background: #fde8e8;
+  border-color: #c0262d;
+  color: #8a1c21;
+}
+
+.form-alert.info {
+  background: var(--violet-light);
+  border-color: var(--violet);
+  color: var(--violet-dark);
+}
+
+.form-note {
+  font-size: 14px;
+  margin-bottom: 18px;
+  color: #555555;
+}
+
+.form-check {
+  display: flex;
+  gap: 10px;
+  align-items: flex-start;
+  margin-bottom: 24px;
+  font-size: 14px;
+}
+
+.form-buttons {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+.form-buttons button {
+  border: none;
+  cursor: pointer;
+  font-size: 16px;
+}
+
+.whatsapp-btn {
+  background: var(--black);
+  color: var(--white);
+  padding: 14px 28px;
+  border-radius: 4px;
+  font-weight: 700;
+}
+
+.whatsapp-btn:hover {
+  background: #333333;
+}
+
+.thank-you-box {
+  max-width: 640px;
+  margin: 0 auto;
+  padding: 40px 30px;
+  text-align: center;
+  background: var(--white);
+  border: 2px solid var(--violet);
+  border-radius: 16px;
+  box-shadow: 0 10px 30px rgba(107, 33, 200, 0.12);
+}
+
+.thank-you-box[hidden] {
+  display: none;
+}
+
+.thank-you-box .tick {
+  width: 64px;
+  height: 64px;
+  margin: 0 auto 16px;
+  border-radius: 50%;
+  background: var(--violet);
+  color: var(--white);
+  font-size: 36px;
+  line-height: 64px;
+}
+
+.thank-you-box h3 {
+  color: var(--violet);
+  margin-bottom: 12px;
+}
+
+.thank-you-box p {
+  line-height: 1.7;
+  margin-bottom: 10px;
+}
+
+.next-steps {
+  max-width: 600px;
+  margin: 40px auto 0;
+  text-align: left;
+  background: var(--violet-light);
+  padding: 24px;
+  border-radius: 12px;
+}
+
+.next-steps h3 {
+  color: var(--violet);
+  margin-bottom: 10px;
+}
+
+.next-steps ol {
+  padding-left: 20px;
+  line-height: 1.7;
+}
+
+/* ---------- Social cards ---------- */
+.social-grid {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 40px;
+  margin-top: 24px;
+}
+
+.social-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 16px;
+}
+
+.qr {
+  width: 200px;
+  height: auto;
+  border: 2px solid var(--violet);
+  border-radius: 12px;
+  background: var(--white);
+}
+
+.social-link {
+  display: inline-block;
+  background: var(--violet);
+  color: var(--white);
+  padding: 12px 24px;
+  border-radius: 4px;
+  text-decoration: none;
+  font-weight: 700;
+}
+
+.social-link:hover {
+  background: var(--violet-dark);
+}
+
+/* On phones, shrink the QR codes, since the link is the easier tap */
+@media (max-width: 600px) {
+  .qr {
+    width: 130px;
+  }
+}
+
+.site-footer {
+  padding: 30px;
+  text-align: center;
+  background: var(--black);
+  color: var(--white);
+}
