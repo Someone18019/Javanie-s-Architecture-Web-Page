@@ -20,13 +20,11 @@
 
     <!-- Menu -->
     <header class="site-header">
-      <a href="#home" class="logo">JAVANIE'S <span>STUDIO</span></a>
       <nav>
         <a href="#home">Home</a>
         <a href="#projects">Projects</a>
         <a href="#services">Services</a>
         <a href="#about">About</a>
-        <a href="#contact" class="nav-cta">Start a Project</a>
       </nav>
     </header>
 
@@ -40,7 +38,6 @@
         <section class="hero">
           <h1>Design. Construct. Renovate.</h1>
           <p>Modern house plans and permit drawings in Jamaica.</p>
-          <a href="#contact" class="hero-btn">Start Your Design</a>
         </section>
 
         <section class="block" id="projects">
@@ -99,268 +96,293 @@
             </ul>
           </div>
 
-          <form class="inquiry-form" id="inquiryForm">
-            <p class="form-legend">Fields marked with * are required.</p>
+          <button type="button" class="hero-btn" id="openForm">
+            Send an Inquiry
+          </button>
 
-            <div class="form-split">
-              <div class="form-row">
-                <label for="firstName">First name *</label>
-                <input
-                  type="text"
-                  id="firstName"
-                  name="firstName"
-                  class="name-input"
-                  autocomplete="given-name"
-                  required
-                />
-              </div>
-
-              <div class="form-row">
-                <label for="lastName">Last name *</label>
-                <input
-                  type="text"
-                  id="lastName"
-                  name="lastName"
-                  class="name-input"
-                  autocomplete="family-name"
-                  required
-                />
-              </div>
-            </div>
-
-            <div class="form-row">
-              <label for="email">Email *</label>
-              <input
-                type="email"
-                id="email"
-                name="email"
-                placeholder="name@example.com"
-                autocomplete="email"
-                pattern="[^@\s]+@[^@\s]+\.[^@\s]{2,}"
-                title="Enter a full email address, like name@example.com"
-                required
-              />
-              <span class="field-error" id="emailError" hidden
-                >Please enter a valid email address.</span
+          <!-- Pop-up window that holds the form and the thank-you message -->
+          <div class="modal" id="formModal" hidden>
+            <div
+              class="modal-box"
+              role="dialog"
+              aria-modal="true"
+              aria-label="Project inquiry"
+            >
+              <button
+                type="button"
+                class="modal-close"
+                id="closeForm"
+                aria-label="Close"
               >
-            </div>
-
-            <div class="form-row">
-              <label for="phone">Phone or WhatsApp number *</label>
-              <input
-                type="tel"
-                id="phone"
-                name="phone"
-                placeholder="+1 (876) 555-1234"
-                autocomplete="tel"
-                inputmode="tel"
-                maxlength="17"
-                required
-              />
-            </div>
-
-            <div class="form-row">
-              <label for="service">What do you need? *</label>
-              <select id="service" name="service" required>
-                <option value="">Choose one</option>
-                <option>House plans</option>
-                <option>Permit drawings</option>
-                <option>Renovation</option>
-                <option>Construction</option>
-                <option>3D visualization</option>
-                <option>Not sure yet</option>
-              </select>
-            </div>
-
-            <!-- Extra questions that appear when they choose House plans -->
-            <div class="house-details" id="houseDetails" hidden>
-              <h3>Tell us about the house</h3>
-
-              <div class="form-row">
-                <label for="bedrooms">Number of bedrooms</label>
-                <select id="bedrooms" name="bedrooms">
-                  <option value="To be discussed">Not sure yet</option>
-                  <option>1</option>
-                  <option>2</option>
-                  <option>3</option>
-                  <option>4</option>
-                  <option>5</option>
-                  <option>6 or more</option>
-                </select>
-              </div>
-
-              <div class="form-row">
-                <label for="bathrooms">Number of bathrooms</label>
-                <select id="bathrooms" name="bathrooms">
-                  <option value="To be discussed">Not sure yet</option>
-                  <option>1</option>
-                  <option>2</option>
-                  <option>3</option>
-                  <option>4 or more</option>
-                </select>
-              </div>
-
-              <div class="form-row">
-                <label for="floors">Number of floors</label>
-                <select id="floors" name="floors">
-                  <option value="To be discussed">Not sure yet</option>
-                  <option>Single storey</option>
-                  <option>Two storeys</option>
-                  <option>Three or more</option>
-                </select>
-              </div>
-
-              <div class="form-row">
-                <label for="style">Style</label>
-                <select id="style" name="style">
-                  <option value="To be discussed">Not sure yet</option>
-                  <option>Modern</option>
-                  <option>Contemporary</option>
-                  <option>Traditional Caribbean</option>
-                  <option>Minimalist</option>
-                  <option>Mediterranean</option>
-                </select>
-              </div>
-
-              <div class="form-row">
-                <label for="features">Must-have features</label>
-                <textarea
-                  id="features"
-                  name="features"
-                  rows="3"
-                  placeholder="For example garage, pool, balcony, helper's quarters, open kitchen"
-                ></textarea>
-              </div>
-            </div>
-
-            <div class="form-row">
-              <label for="type">Project type</label>
-              <select id="type" name="type">
-                <option value="To be discussed">
-                  Not sure yet, to be discussed
-                </option>
-                <option>Residential</option>
-                <option>Commercial</option>
-                <option>Other</option>
-              </select>
-            </div>
-
-            <div class="form-row">
-              <label for="locationChoice">Plot location</label>
-              <select id="locationChoice" name="locationChoice">
-                <option value="To be discussed">
-                  Not decided yet, to be discussed
-                </option>
-                <option value="specify">I know the location</option>
-              </select>
-              <select id="parish" name="parish" hidden>
-                <option value="">Choose a parish</option>
-              </select>
-              <select id="town" name="town" hidden>
-                <option value="">Choose a town or community</option>
-              </select>
-              <input
-                type="text"
-                id="location"
-                name="location"
-                placeholder="Type the town or community"
-                hidden
-              />
-            </div>
-
-            <div class="form-row">
-              <label for="sizeChoice">Land size</label>
-              <select id="sizeChoice" name="sizeChoice">
-                <option value="To be discussed">
-                  Not specified yet, to be discussed
-                </option>
-                <option>Small lot, under 5,000 sq ft</option>
-                <option>Medium lot, 5,000 to 10,000 sq ft</option>
-                <option>
-                  Large lot, 10,000 to 21,780 sq ft (up to half an acre)
-                </option>
-                <option>Very large, over half an acre</option>
-                <option value="specify">I know the exact size</option>
-              </select>
-              <input
-                type="text"
-                id="size"
-                name="size"
-                placeholder="For example 50 x 100 ft"
-                hidden
-              />
-            </div>
-
-            <div class="form-row">
-              <label for="budget">Budget range (JMD)</label>
-              <select id="budget" name="budget">
-                <option value="To be discussed">To be discussed</option>
-                <option>Under $100,000</option>
-                <option>$100,000 to $300,000</option>
-                <option>$300,000 to $500,000</option>
-                <option>$500,000 to $1 million</option>
-                <option>$1 million and up</option>
-              </select>
-            </div>
-
-            <div class="form-row">
-              <label for="timeline">When do you want to start?</label>
-              <select id="timeline" name="timeline">
-                <option value="To be discussed">
-                  Not sure yet, to be discussed
-                </option>
-                <option>As soon as possible</option>
-                <option>Within 3 months</option>
-                <option>Within 6 months</option>
-                <option>Just exploring</option>
-              </select>
-            </div>
-
-            <div class="form-row">
-              <label for="details">Tell us about your idea</label>
-              <textarea
-                id="details"
-                name="details"
-                rows="5"
-                placeholder="Anything else you want us to know about your idea"
-              ></textarea>
-            </div>
-
-            <p class="form-note">
-              Have sketches or photos? Send them to us on WhatsApp after you
-              submit.
-            </p>
-
-            <div class="form-check">
-              <input type="checkbox" id="consent" name="consent" required />
-              <label for="consent"
-                >I agree to the
-                <a href="privacy.html" target="_blank" rel="noopener"
-                  >Privacy, Security and Agreement terms</a
-                >
-                and that my details may be used to respond to my inquiry.</label
-              >
-            </div>
-
-            <div class="form-buttons">
-              <button type="submit" class="hero-btn" id="sendBtn" disabled>
-                Send My Inquiry
+                &times;
               </button>
-            </div>
-            <p class="form-alert" id="formStatus" role="alert" hidden></p>
-          </form>
 
-          <!-- Shown in place of the form once the inquiry has really been sent -->
-          <div class="thank-you-box" id="thankYouBox" hidden>
-            <div class="tick">&#10003;</div>
-            <h3>Thank you for your inquiry</h3>
-            <p>
-              Your inquiry has been sent. We will review your details and reply
-              within 2 to 4 business days.
-            </p>
-            <p>
-              Have sketches or photos of your plot? Send them to us on WhatsApp.
-            </p>
+              <form class="inquiry-form" id="inquiryForm">
+                <p class="form-legend">Fields marked with * are required.</p>
+
+                <div class="form-split">
+                  <div class="form-row">
+                    <label for="firstName">First name *</label>
+                    <input
+                      type="text"
+                      id="firstName"
+                      name="firstName"
+                      class="name-input"
+                      autocomplete="given-name"
+                      required
+                    />
+                  </div>
+
+                  <div class="form-row">
+                    <label for="lastName">Last name *</label>
+                    <input
+                      type="text"
+                      id="lastName"
+                      name="lastName"
+                      class="name-input"
+                      autocomplete="family-name"
+                      required
+                    />
+                  </div>
+                </div>
+
+                <div class="form-row">
+                  <label for="email">Email *</label>
+                  <input
+                    type="email"
+                    id="email"
+                    name="email"
+                    placeholder="name@example.com"
+                    autocomplete="email"
+                    pattern="[^@\s]+@[^@\s]+\.[^@\s]{2,}"
+                    title="Enter a full email address, like name@example.com"
+                    required
+                  />
+                  <span class="field-error" id="emailError" hidden
+                    >Please enter a valid email address.</span
+                  >
+                </div>
+
+                <div class="form-row">
+                  <label for="phone">Phone or WhatsApp number *</label>
+                  <input
+                    type="tel"
+                    id="phone"
+                    name="phone"
+                    placeholder="+1 (876) 555-1234"
+                    autocomplete="tel"
+                    inputmode="tel"
+                    maxlength="17"
+                    required
+                  />
+                </div>
+
+                <div class="form-row">
+                  <label for="service">What do you need? *</label>
+                  <select id="service" name="service" required>
+                    <option value="">Choose one</option>
+                    <option>House plans</option>
+                    <option>Permit drawings</option>
+                    <option>Renovation</option>
+                    <option>Construction</option>
+                    <option>3D visualization</option>
+                    <option>Not sure yet</option>
+                  </select>
+                </div>
+
+                <!-- Extra questions that appear when they choose House plans -->
+                <div class="house-details" id="houseDetails" hidden>
+                  <h3>Tell us about the house</h3>
+
+                  <div class="form-row">
+                    <label for="bedrooms">Number of bedrooms</label>
+                    <select id="bedrooms" name="bedrooms">
+                      <option value="To be discussed">Not sure yet</option>
+                      <option>1</option>
+                      <option>2</option>
+                      <option>3</option>
+                      <option>4</option>
+                      <option>5</option>
+                      <option>6 or more</option>
+                    </select>
+                  </div>
+
+                  <div class="form-row">
+                    <label for="bathrooms">Number of bathrooms</label>
+                    <select id="bathrooms" name="bathrooms">
+                      <option value="To be discussed">Not sure yet</option>
+                      <option>1</option>
+                      <option>2</option>
+                      <option>3</option>
+                      <option>4 or more</option>
+                    </select>
+                  </div>
+
+                  <div class="form-row">
+                    <label for="floors">Number of floors</label>
+                    <select id="floors" name="floors">
+                      <option value="To be discussed">Not sure yet</option>
+                      <option>Single storey</option>
+                      <option>Two storeys</option>
+                      <option>Three or more</option>
+                    </select>
+                  </div>
+
+                  <div class="form-row">
+                    <label for="style">Style</label>
+                    <select id="style" name="style">
+                      <option value="To be discussed">Not sure yet</option>
+                      <option>Modern</option>
+                      <option>Contemporary</option>
+                      <option>Traditional Caribbean</option>
+                      <option>Minimalist</option>
+                      <option>Mediterranean</option>
+                    </select>
+                  </div>
+
+                  <div class="form-row">
+                    <label for="features">Must-have features</label>
+                    <textarea
+                      id="features"
+                      name="features"
+                      rows="3"
+                      placeholder="For example garage, pool, balcony, helper's quarters, open kitchen"
+                    ></textarea>
+                  </div>
+                </div>
+
+                <div class="form-row">
+                  <label for="type">Project type</label>
+                  <select id="type" name="type">
+                    <option value="To be discussed">
+                      Not sure yet, to be discussed
+                    </option>
+                    <option>Residential</option>
+                    <option>Commercial</option>
+                    <option>Other</option>
+                  </select>
+                </div>
+
+                <div class="form-row">
+                  <label for="locationChoice">Plot location</label>
+                  <select id="locationChoice" name="locationChoice">
+                    <option value="To be discussed">
+                      Not decided yet, to be discussed
+                    </option>
+                    <option value="specify">I know the location</option>
+                  </select>
+                  <select id="parish" name="parish" hidden>
+                    <option value="">Choose a parish</option>
+                  </select>
+                  <select id="town" name="town" hidden>
+                    <option value="">Choose a town or community</option>
+                  </select>
+                  <input
+                    type="text"
+                    id="location"
+                    name="location"
+                    placeholder="Type the town or community"
+                    hidden
+                  />
+                </div>
+
+                <div class="form-row">
+                  <label for="sizeChoice">Land size</label>
+                  <select id="sizeChoice" name="sizeChoice">
+                    <option value="To be discussed">
+                      Not specified yet, to be discussed
+                    </option>
+                    <option>Small lot, under 5,000 sq ft</option>
+                    <option>Medium lot, 5,000 to 10,000 sq ft</option>
+                    <option>
+                      Large lot, 10,000 to 21,780 sq ft (up to half an acre)
+                    </option>
+                    <option>Very large, over half an acre</option>
+                    <option value="specify">I know the exact size</option>
+                  </select>
+                  <input
+                    type="text"
+                    id="size"
+                    name="size"
+                    placeholder="For example 50 x 100 ft"
+                    hidden
+                  />
+                </div>
+
+                <div class="form-row">
+                  <label for="budget">Budget range (JMD)</label>
+                  <select id="budget" name="budget">
+                    <option value="To be discussed">To be discussed</option>
+                    <option>Under $100,000</option>
+                    <option>$100,000 to $300,000</option>
+                    <option>$300,000 to $500,000</option>
+                    <option>$500,000 to $1 million</option>
+                    <option>$1 million and up</option>
+                  </select>
+                </div>
+
+                <div class="form-row">
+                  <label for="timeline">When do you want to start?</label>
+                  <select id="timeline" name="timeline">
+                    <option value="To be discussed">
+                      Not sure yet, to be discussed
+                    </option>
+                    <option>As soon as possible</option>
+                    <option>Within 3 months</option>
+                    <option>Within 6 months</option>
+                    <option>Just exploring</option>
+                  </select>
+                </div>
+
+                <div class="form-row">
+                  <label for="details">Tell us about your idea</label>
+                  <textarea
+                    id="details"
+                    name="details"
+                    rows="5"
+                    placeholder="Anything else you want us to know about your idea"
+                  ></textarea>
+                </div>
+
+                <p class="form-note">
+                  Have sketches or photos? Send them to us on WhatsApp after you
+                  submit.
+                </p>
+
+                <div class="form-check">
+                  <input type="checkbox" id="consent" name="consent" required />
+                  <label for="consent"
+                    >I agree to the
+                    <a href="privacy.html" target="_blank" rel="noopener"
+                      >Privacy, Security and Agreement terms</a
+                    >
+                    and that my details may be used to respond to my
+                    inquiry.</label
+                  >
+                </div>
+
+                <div class="form-buttons">
+                  <button type="submit" class="hero-btn" id="sendBtn" disabled>
+                    Send My Inquiry
+                  </button>
+                </div>
+                <p class="form-alert" id="formStatus" role="alert" hidden></p>
+              </form>
+
+              <!-- Shown in place of the form once the inquiry has really been sent -->
+              <div class="thank-you-box" id="thankYouBox" hidden>
+                <div class="tick">&#10003;</div>
+                <h3>Thank you for your inquiry</h3>
+                <p>
+                  Your inquiry has been sent. We will review your details and
+                  reply within 2 to 4 business days.
+                </p>
+                <p>
+                  Have sketches or photos of your plot? Send them to us on
+                  WhatsApp.
+                </p>
+              </div>
+            </div>
           </div>
 
           <div class="next-steps">

@@ -47,6 +47,38 @@ const ACCESS_KEY = "PASTE_YOUR_ACCESS_KEY_HERE";
 // WhatsApp number from his TikTok bio, digits only. Used for the optional chat link.
 const WHATSAPP_NUMBER = "18764906032";
 
+// ---------- Pop-up window for the form ----------
+const formModal = document.getElementById("formModal");
+const openFormBtn = document.getElementById("openForm");
+const closeFormBtn = document.getElementById("closeForm");
+
+function openModal() {
+  formModal.hidden = false;
+  document.body.style.overflow = "hidden";
+}
+
+function closeModal() {
+  formModal.hidden = true;
+  document.body.style.overflow = "";
+}
+
+openFormBtn.addEventListener("click", openModal);
+closeFormBtn.addEventListener("click", closeModal);
+
+// Click the dark area outside the box to close
+formModal.addEventListener("click", function (event) {
+  if (event.target === formModal) {
+    closeModal();
+  }
+});
+
+// Escape key closes it too
+document.addEventListener("keydown", function (event) {
+  if (event.key === "Escape" && !formModal.hidden) {
+    closeModal();
+  }
+});
+
 const form = document.getElementById("inquiryForm");
 const formStatus = document.getElementById("formStatus");
 const emailInput = document.getElementById("email");
