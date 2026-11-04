@@ -487,7 +487,7 @@ main {
 
 .next-steps {
   max-width: 600px;
-  margin: 40px auto 0;
+  margin: 0 auto 40px;
   text-align: left;
   background: var(--violet-light);
   padding: 24px;
